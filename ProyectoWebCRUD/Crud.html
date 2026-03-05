@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Docentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="crud">
+    <h1>Registro de Docentes</h1>
+
+    <input type="text" id="tipoDoc" placeholder="Tipo Documento">
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="apellido" placeholder="Apellido">
+    <input type="date" id="fecha">
+    <select id="nivel">
+    <option value="">Seleccione Nivel de Estudios</option>
+    <option value="Pregrado">Pregrado</option>
+    <option value="Especialización">Especialización</option>
+    <option value="Maestría">Maestría</option>
+    <option value="Doctorado">Doctorado</option>
+</select>
+    <select id="area">
+    <option value="">Seleccione Área</option>
+    <option value="Matemáticas">Matemáticas</option>
+    <option value="Ciencias">Ciencias</option>
+    <option value="Sistemas">Sistemas</option>
+    <option value="Industriales">Industriales</option>
+    <option value="Veterinaria">Veterinaria</option>
+</select>
+    <select id="grado">
+    <option value="">Seleccione Grado</option>
+    <option value="1">1° Semestre</option>
+    <option value="2">2° Semestre</option>
+    <option value="3">3° Semestre</option>
+    <option value="4">4° Semestre</option>
+    <option value="5">5° Semestre</option>
+    <option value="6">6° Semestre</option>
+    <option value="7">7° Semestre</option>
+    <option value="8">8° Semestre</option>
+    <option value="9">9° Semestre</option>
+    <option value="10">10° Semestre</option>
+</select>
+    <input type="text" id="eps" placeholder="EPS">
+    <input type="number" id="salario" placeholder="Salario">
+
+    <br><br>
+
+    <div class="boton-centrado">
+    <button onclick="agregarDocente()">Agregar</button>
+</div>
+
+    <h2>Lista de Docentes</h2>
+
+    <table border="1">
+        <thead>
+         <tr>
+                     <th>Documento</th>
+                     <th>Nombre</th>
+                     <th>Apellido</th>
+                     <th>Nivel</th>
+                     <th>Área</th>
+                     <th>Salario</th>
+                     <th>Acciones</th>
+         </tr>
+          </thead>
+        <tbody id="tablaDocentes"></tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

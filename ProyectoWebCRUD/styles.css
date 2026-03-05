@@ -1,0 +1,61 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ebe8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculadora {
+    background: rgb(135, 135, 222);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(216, 210, 210, 0.552);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+input, select {
+    padding: 8px;
+    margin: 10px;
+    width: 150px;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.boton-centrado {
+    text-align: center;
+    margin-top: 10px;
+}
