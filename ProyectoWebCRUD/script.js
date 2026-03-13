@@ -43,6 +43,7 @@ function porcentaje() {
 // ===== CRUD DE DOCENTE =====
 
 let docentes = [];
+let editando = -1;
 
 function agregarDocente() {
 
@@ -58,7 +59,13 @@ function agregarDocente() {
         salario: document.getElementById("salario").value
     };
 
-    docentes.push(docente);
+    if(editando === -1){
+        docentes.push(docente);
+    } else {
+        docentes[editando] = docente;
+        editando = -1;
+    }
+
     mostrarDocentes();
     limpiarFormulario();
 }
@@ -70,21 +77,26 @@ function mostrarDocentes() {
 
     docentes.forEach((docente, index) => {
 
-tabla.innerHTML += `
-<tr>
-    <td>${docente.tipoDoc}</td>
-    <td>${docente.nombre}</td>
-    <td>${docente.apellido}</td>
-    <td>${docente.nivel}</td>
-    <td>${docente.area}</td>
-    <td>${docente.salario}</td>
-    <td>
-        <button onclick="eliminarDocente(${index})">Eliminar</button>
-    </td>
-</tr>
-`;
+        tabla.innerHTML += `
+        <tr>
+            <td>${docente.tipoDoc}</td>
+            <td>${docente.nombre}</td>
+            <td>${docente.apellido}</td>
+            <td>${docente.fecha}</td>
+            <td>${docente.nivel}</td>
+            <td>${docente.area}</td>
+            <td>${docente.grado}</td>
+            <td>${docente.eps}</td>
+            <td>${docente.salario}</td>
+            <td>
+                <button onclick="editarDocente(${index})">Editar</button>
+                <button onclick="eliminarDocente(${index})">Eliminar</button>
+            </td>
+        </tr>
+        `;
     });
 }
+
 
 function eliminarDocente(index) {
     docentes.splice(index, 1);
@@ -101,4 +113,50 @@ function limpiarFormulario() {
     document.getElementById("grado").value = "";
     document.getElementById("eps").value = "";
     document.getElementById("salario").value = "";
+}
+function editarDocente(index){
+
+    let docente = docentes[index];
+
+    document.getElementById("tipoDoc").value = docente.tipoDoc;
+    document.getElementById("nombre").value = docente.nombre;
+    document.getElementById("apellido").value = docente.apellido;
+    document.getElementById("fecha").value = docente.fecha;
+    document.getElementById("nivel").value = docente.nivel;
+    document.getElementById("area").value = docente.area;
+    document.getElementById("grado").value = docente.grado;
+    document.getElementById("eps").value = docente.eps;
+    document.getElementById("salario").value = docente.salario;
+
+    editando = index;
+}
+
+function mostrarDocentes() {
+
+    let tabla = document.getElementById("tablaDocentes");
+    tabla.innerHTML = "";
+
+    docentes.forEach((docente, index) => {
+
+        let fila = `
+        <tr>
+            <td>${docente.tipoDoc}</td>
+            <td>${docente.nombre}</td>
+            <td>${docente.apellido}</td>
+            <td>${docente.fecha}</td>
+            <td>${docente.nivel}</td>
+            <td>${docente.area}</td>
+            <td>${docente.grado}</td>
+            <td>${docente.eps}</td>
+            <td>${docente.salario}</td>
+            <td>
+                <button onclick="editarDocente(${index})">Editar</button>
+                <button onclick="eliminarDocente(${index})">Eliminar</button>
+            </td>
+        </tr>
+        `;
+
+        tabla.innerHTML += fila;
+    });
+
 }
